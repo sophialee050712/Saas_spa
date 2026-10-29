@@ -1,0 +1,1 @@
+{"compilerOptions":{"composite":false,"declaration":false,"esModuleInterop":true,"module":"ESNext","moduleResolution":"bundler","noEmit":true,"outDir":"dist","strict":true,"target":"ES2022"},"extends":"../../tsconfig.base.json","include":["src","__tests__"]}

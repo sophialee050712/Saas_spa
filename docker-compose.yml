@@ -1,0 +1,37 @@
+# GĐ0: dinh nghia ha tang local. CHUA KIEM CHUNG bang docker trong VM nay
+# (docker khong co san o day). Tren may co docker: docker compose up -d postgres redis
+# roi chay app bang pnpm dev (xem docs/GD0-README.md).
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: spa_saas
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: CHANGE_ME
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./packages/db/bootstrap:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d spa_saas"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  # App (web/api/worker) o GĐ0 chay bang pnpm dev tren host, khong dong goi Docker,
+  # de tranh phuc tap build Next/Nest khi chua co code nghiep vu day du.
+  # Khi len staging se them Dockerfile cho tung app (can dnduy quyet base image).
+volumes:
+  pgdata:
+  redisdata:

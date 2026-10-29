@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "paths": {
+      "@spa-saas/shared": [
+        "../../packages/shared/src/index.ts"
+      ],
+      "@spa-saas/ui": [
+        "../../packages/ui/src/index.ts"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strict": true,
+    "target": "ES2022",
+    "allowJs": true,
+    "incremental": true
+  },
+  "extends": "../../tsconfig.base.json",
+  "include": [
+    "app",
+    "next-env.d.ts",
+    "next.config.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

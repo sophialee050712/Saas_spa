@@ -1,0 +1,6 @@
+-- RLS policy mau (da ap dung day du trong migration 0002).
+-- File nay chi de doc/tham chieu khi viet migration cho module moi:
+-- moi bang co tenant_id phai co ENABLE + FORCE + policy tenant_isolation.
+-- CREATE POLICY tenant_isolation ON <bang>
+--   USING (tenant_id = current_setting('app.tenant_id', false)::uuid)
+--   WITH CHECK (tenant_id = current_setting('app.tenant_id', false)::uuid);

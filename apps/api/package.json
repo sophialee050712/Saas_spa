@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "@nestjs/common": "^12.3.2",
+    "@nestjs/core": "^12.3.2",
+    "@nestjs/platform-express": "^12.3.2",
+    "@noble/hashes": "^2.4.0",
+    "@spa-saas/shared": "workspace:*",
+    "jsonwebtoken": "^9.0.3",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@nestjs/testing": "^12.3.2",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.10.0",
+    "eslint": "^10.13.0",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^2.1.8"
+  },
+  "main": "./dist/main.js",
+  "name": "@spa-saas/api",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json && node dist/main.js",
+    "lint": "eslint src --max-warnings 0",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "version": "0.0.0",
+  "type": "module"
+}
