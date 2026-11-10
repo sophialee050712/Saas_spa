@@ -9,3 +9,4 @@ out/
 *.muse-github-snapshot-sync.json
 *.muse-github-snapshot-sync.json.tmp-*
 tsconfig.tsbuildinfo
+.neon
